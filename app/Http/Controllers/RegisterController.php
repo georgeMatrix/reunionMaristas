@@ -26,7 +26,7 @@ class RegisterController extends Controller
             ->join('staff', 'person.staff_id', '=', 'staff.id')
             ->join('registers', 'person.id', '=', 'registers.person_id')
             ->where('registers.id', '=', $id)
-            ->select('person.full_name', 'campuses.official_name', 'staff.name', 'person.job_email', 'person.personal_email', 'registers.check_in', 'registers.check_out', 'registers.is_loading', 'registers.is_food', 'registers.food_description', 'registers.notes', 'campuses.code as campus')
+            ->select('person.full_name', 'campuses.official_name', 'staff.name', 'person.job_email', 'person.personal_email', 'registers.check_in', 'registers.check_out', 'registers.is_loading', 'registers.is_food', 'registers.food_description', 'registers.notes', 'campuses.name as campus')
             ->get();
         $datosRegisters = DB::table('registers')
             ->join('meetings', 'registers.event_id', '=', 'meetings.id')

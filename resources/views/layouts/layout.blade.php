@@ -9,9 +9,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="maristas">
+
+    <link rel="shortcut icon" href="{{asset('img/maristaicono.ico')}}">
     <meta name="author" content="maristas">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Reuniones Maristas</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 

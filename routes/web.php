@@ -19,5 +19,6 @@ Auth::routes(['register'=>false, 'reset'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('registro', 'RegisterController');
+Route::get('crear', 'RegisterController@create')->name('crear');
 Route::get('crearPdf/{id}', 'RegisterController@ExportPdf')->name('crearPdf');
 Route::resource('inicio', 'InicioController');
