@@ -26,6 +26,9 @@
     <script type="text/javascript" src="{{asset('datetimepicker/build/jquery.datetimepicker.full.js')}}"></script>
     <link rel="stylesheet" href="{{asset('datetimepicker/build/jquery.datetimepicker.min.css')}}">
 
+    <!-- Toastr -->
+    <link href="{{ asset('css/toastr.v.2.1.3/toastr.min.css') }}" rel="stylesheet">
+
     <style>
         .content-loader tr td {
             white-space: nowrap;
@@ -130,6 +133,8 @@
     </div>
 </div>
 
+<!-- Toastr -->
+<script src="{{asset('js/toastr.v.2.1.3/toastr.min.js') }}"></script>
 @yield('scripts')
 </body>
 

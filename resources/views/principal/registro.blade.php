@@ -2,12 +2,12 @@
 @section('contenido')
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-row mb-3">
-            <div class="col-lg-6 col-md-6 col-sm-12 d-none d-lg-block d-sm-none text-lg-left text-md-left">
-                <h4 class="pb-1"><i class="far fa-address-book"></i> Registro Reunion de Directivos</h4>
-                <p class="custom-form-required-fields">Campos obligatorios *</p>
+            <div class="col-lg-12 col-md-12 col-sm-12 d-none d-lg-block d-sm-none text-lg-left text-md-left">
+
+                <p class="custom-form-required-fields text-danger">Campos obligatorios *</p>
             </div>
         </div>
-            <form action="{{route('registro.store')}}" method="post">
+            <form action="{{route('registro.store')}}" method="post" id="registroForm">
                 {{csrf_field()}}
 
                 <div class="form-row mb-3">
@@ -22,8 +22,8 @@
                         <label for="">Colegio *</label>
                         <select  name="campus_id" id="campus_id" class="form-control">
                             <option value="" selected>Seleccione una opción</option>
-                            @foreach($campuses as $campus)
-                                <option value="{{$campus->id}}" {{ old('campus_id') == $campus->id ? 'selected' : ''}}>{{$campus->official_name}}</option>
+                            @foreach($campuses->sortBy('name') as $campus)
+                                <option value="{{$campus->id}}" {{ old('campus_id') == $campus->id ? 'selected' : ''}}>{{$campus->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -51,12 +51,12 @@
                 </div>
                 <div class="form-row mb-3">
                     <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label for="">Dia y Hora de llegada *</label>
+                        <label for="">Día y Hora de llegada *</label>
                         <input type="text" required readonly name="check_in" id="check_in" class="form-control {{$errors->has('check_in')?'is-invalid':''}}" value="{{old('check_in')}}">
                         <div class="invalid-feedback term-code-id">{{$errors->first('check_in')}}</div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label for="">Dia y Hora de Salida *</label>
+                        <label for="">Día y Hora de Salida *</label>
                         <input type="text" required readonly name="check_out" id="check_out" class="form-control {{$errors->has('check_out')?'is-invalid':''}}" value="{{old('check_out')}}">
                         <div class="invalid-feedback term-code-id">{{$errors->first('check_out')}}</div>
                     </div>
@@ -93,7 +93,7 @@
                 <div class="form-row mb-3">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <label for="">Descripción de la comida</label>
-                        <textarea class="form-control" disabled name="food_description" id="food_description" cols="30" rows="5" placeholder="Si por cuestión medica requiere alimentos especiales por favor describirlos"></textarea>
+                        <textarea class="form-control" disabled name="food_description" id="food_description" cols="30" rows="5" placeholder="Si por cuestión médica requiere alimentos especiales, por favor describirlos"></textarea>
                     </div>
                 </div>
 
@@ -111,6 +111,13 @@
     @endsection
 @section('scripts')
     <script>
+        @if(session('message'))
+                Command: toastr["success"]('Información cargada correctamente');
+        @endif
+
+
+
+
         $('input[type=radio][name=is_food]').change(function() {
             if (this.value == '1') {
                 $('#food_description').prop('disabled', false);

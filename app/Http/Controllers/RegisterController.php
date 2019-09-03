@@ -95,7 +95,7 @@ class RegisterController extends Controller
         $register->food_description = $request->food_description;
         $register->notes = $request->notes;
         $register->save();
-        return redirect()->route('registro.create');
+        return redirect()->route('registro.create')->with(['message' => 'Transacción éxistosa']);
     }
 
     /**

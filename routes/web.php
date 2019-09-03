@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('registro.create');
+    return redirect('inicio');
 });
 
-Auth::routes();
+Auth::routes(['register'=>false, 'reset'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('registro', 'RegisterController');
 Route::get('crearPdf/{id}', 'RegisterController@ExportPdf')->name('crearPdf');
+Route::resource('inicio', 'InicioController');
