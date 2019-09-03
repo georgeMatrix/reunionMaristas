@@ -14,27 +14,31 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 d-none d-lg-block d-sm-none text-lg-left text-md-left">
                         <label for="">Nombre Completo *</label>
                         <input name="full_name" id="full_name" type="text" class="form-control {{$errors->has('full_name')?'is-invalid':''}}" value="{{old('full_name')}}">
+                        <div class="invalid-feedback name">{{$errors->first('full_name')}}</div>
+
                     </div>
                 </div>
                 
                 <div class="form-row mb-3">
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <label for="">Colegio *</label>
-                        <select  name="campus_id" id="campus_id" class="form-control">
+                        <select  name="campus_id" id="campus_id" class="form-control {{$errors->has('campus_id')?'is-invalid':''}}">
                             <option value="" selected>Seleccione una opción</option>
                             @foreach($campuses->sortBy('name') as $campus)
                                 <option value="{{$campus->id}}" {{ old('campus_id') == $campus->id ? 'selected' : ''}}>{{$campus->name}}</option>
                             @endforeach
                         </select>
+                        <div class="invalid-feedback">{{$errors->first('campus_id')}}</div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <label for="">Cargo *</label>
-                        <select   name="staff_id" id="staff_id" class="form-control">
+                        <select name="staff_id" id="staff_id" class="form-control {{$errors->has('staff_id')?'is-invalid':''}}">
                             <option value="">Seleccione una opción</option>
                             @foreach($staffs as $staff)
                                 <option value="{{$staff->id}}" {{ old('staff_id') == $staff->id ? 'selected' : ''}}>{{$staff->name}}</option>
                             @endforeach
                         </select>
+                        <div class="invalid-feedback">{{$errors->first('staff_id')}}</div>
                     </div>
                 </div>
                 <div class="form-row mb-3">

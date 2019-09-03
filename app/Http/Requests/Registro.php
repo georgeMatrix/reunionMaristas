@@ -24,7 +24,7 @@ class Registro extends FormRequest
     public function rules()
     {
         return [
-            'full_name' => 'required',
+            'full_name' => 'required|unique:person,full_name,'.$this->registro,
             'campus_id' => 'required',
             'staff_id' => 'required',
             'job_email' => 'required',
