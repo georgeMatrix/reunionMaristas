@@ -4,23 +4,25 @@
         <div class="col-lg-6 col-md-6 col-sm-12 d-none d-lg-block d-sm-none text-lg-left text-md-left">
             <h4 class="pb-1"><i class="fas fa-user-lock"></i> Tabla de Resultados</h4>
         </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 text-lg-right">
+            <a href="{{url('excel')}}" class="btn btn-success">EXCEL</a>
+        </div>
     </div>
     <div class="content-loader">
         <table class="table table-responsive table-hover table-striped">
         <thead class="table-primary">
         <tr>
-            <th>Nombre_Completo</th>
-            <th>Colegio</th>
-            <th>Cargo</th>
-            <th>Correo_Institucional</th>
-            <th>Correo_Alternativo</th>
-            <th>Dia_y_Hora_de_llegada</th>
-            <th>Dia_y_Hora_de_Salida</th>
-            <th>Require_Hospedaje</th>
-            <th>Require_Alimentos</th>
-            <th>Descripción_Alimentos</th>
-            <th>Notas_Adicionales</th>
-            <th>PDF</th>
+            <th>NOMBRE_COMPLETO</th>
+            <th>COLEGIO</th>
+            <th>CARGO</th>
+            <th>CORREO_INSTITUCIONAL</th>
+            <th>CORREO_ALTERNATIVO</th>
+            <th>DIA_Y_HORA_DE_LLEGADA</th>
+            <th>DIA_Y_HORA_DE_SALIDA</th>
+            <th>REQUIERE_HOSPEDAJE</th>
+            <th>REQUIERE_ALIMENTOS</th>
+            <th>DESCRIPCIÓN_DE_ALIMENTOS</th>
+            <th>NOTAS_ADICIONALES</th>
         </tr>
         </thead>
         <tbody>
@@ -50,9 +52,6 @@
                 </td>
                 <td>{{$dato->food_description}}</td>
                 <td>{{$dato->notes}}</td>
-                <td>
-                    <a href="{{route('crearPdf', $dato->id)}}" class="btn btn-info">PDF</a>
-                </td>
                 </tr>
             @endforeach
             @endif

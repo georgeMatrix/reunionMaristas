@@ -11,14 +11,24 @@
 |
 */
 
+
+use App\Exports\RegistersExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 Route::get('/', function () {
     return redirect('inicio');
+});
+
+Route::get('excel_1', function () {
+    //return Excel::download(new RegistersExport(), 'registers.xlsx');
+    return (new RegistersExport)->download('registers.xlsx');
 });
 
 Auth::routes(['register'=>false, 'reset'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('registro', 'RegisterController');
-Route::get('crear', 'RegisterController@create')->name('crear');
-Route::get('crearPdf/{id}', 'RegisterController@ExportPdf')->name('crearPdf');
+Route::get('excel', 'RegisterController@excel');
+/*Route::get('crear', 'RegisterController@create')->name('crear');
+Route::get('crearPdf/{id}', 'RegisterController@ExportPdf')->name('crearPdf');*/
 Route::resource('inicio', 'InicioController');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Campus;
+use App\Exports\RegistersExport;
 use App\Http\Requests\Registro;
 use App\Meeting;
 use App\Person;
@@ -19,7 +20,11 @@ class RegisterController extends Controller
         $this->middleware('auth', ['only' => ['index']]);
     }
 
-    public function ExportPdf($id){
+    public function excel(){
+        return (new RegistersExport)->download('registers.xlsx');
+    }
+
+   /* public function ExportPdf($id){
         //return $request->except('_token');
         $datosPerson = DB::table('person')
             ->join('campuses', 'person.campus_id', '=', 'campuses.id')
@@ -35,7 +40,7 @@ class RegisterController extends Controller
         //$pdf = PDF::loadView('cartaPorte/cartaPortePDF', ['cartaPorte'=> $cartaPorte, 'fecha'=>$fecha, 'tipo'=>$tipo, 'letra'=>$letra]);
         $pdf = PDF::loadView('principal/createPdf', ['datosPerson'=>$datosPerson, 'datosRegisters'=>$datosRegisters]);
         return $pdf->download('algo.pdf');
-    }
+    }*/
 
     /**
      * Display a listing of the resource.
