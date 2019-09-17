@@ -115,12 +115,17 @@
     @endsection
 @section('scripts')
     <script>
+        $(document).ready(function(){
+            toastr.options = {
+                'showDuration': '100000',
+                'hideDuration': '100000',
+                'timeOut': '500000'
+            }
+        })
+
         @if(session('message'))
                 Command: toastr["success"]('Información cargada correctamente');
         @endif
-
-
-
 
         $('input[type=radio][name=is_food]').change(function() {
             if (this.value == '1') {

@@ -33,7 +33,7 @@
             @foreach($datos[0] as $dato)
                 <tr>
                 <td>{{$dato->full_name}}</td>
-                <td>{{$dato->official_name}}</td>
+                <td>{{$dato->campus_name}}</td>
                 <td>{{$dato->name}}</td>
                 <td>{{$dato->job_email}}</td>
                 <td>{{$dato->personal_email}}</td>

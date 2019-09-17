@@ -9,7 +9,6 @@ use App\Meeting;
 use App\Person;
 use App\Register;
 use App\Staff;
-use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +52,8 @@ class RegisterController extends Controller
             ->join('campuses', 'person.campus_id', '=', 'campuses.id')
             ->join('staff', 'person.staff_id', '=', 'staff.id')
             ->join('registers', 'person.id', '=', 'registers.person_id')
-            ->select('person.id','person.full_name', 'campuses.official_name', 'staff.name', 'person.job_email', 'person.personal_email', 'registers.check_in', 'registers.check_out', 'registers.is_loading', 'registers.is_food', 'registers.food_description', 'registers.notes')
+            ->select('person.id','person.full_name', 'campuses.name as campus_name', 'staff.name', 'person.job_email', 'person.personal_email', 'registers.check_in', 'registers.check_out', 'registers.is_loading', 'registers.is_food', 'registers.food_description', 'registers.notes', 'registers.status')
+            ->where('registers.status', '=', 'active')
             ->get();
         $datosRegisters = DB::table('registers')
             ->join('meetings', 'registers.event_id', '=', 'meetings.id')
