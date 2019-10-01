@@ -17,8 +17,8 @@ class CreatePersonTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('campus_id');
             $table->foreign('campus_id')->references('id')->on('campuses');
-            $table->unsignedInteger('staff_id');
-            $table->foreign('staff_id')->references('id')->on('staff');
+            //$table->unsignedInteger('staff_id');
+            //$table->foreign('staff_id')->references('id')->on('staff');
             $table->string('full_name');
             $table->text('job_email');
             $table->text('personal_email')->nullable();

@@ -30,7 +30,7 @@
                         </select>
                         <div class="invalid-feedback">{{$errors->first('campus_id')}}</div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <!--<div class="col-lg-6 col-md-6 col-sm-12">
                         <label for="">Cargo *</label>
                         <select name="staff_id" id="staff_id" class="form-control {{$errors->has('staff_id')?'is-invalid':''}}">
                             <option value="">Seleccione una opción</option>
@@ -39,7 +39,7 @@
                             @endforeach
                         </select>
                         <div class="invalid-feedback">{{$errors->first('staff_id')}}</div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="form-row mb-3">
                     <div class="col-lg-12 col-md-12 col-sm-12">

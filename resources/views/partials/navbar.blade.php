@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center ">Reunión de Directivos, septiembre 20 - 21 de 2019</h2>
+            <h2 class="text-center ">Reunión de Comunicación y Promoción, octubre 10 - 11 de 2019</h2>
         </div>
     </div>
 

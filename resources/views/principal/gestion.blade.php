@@ -14,7 +14,6 @@
         <tr>
             <th>NOMBRE_COMPLETO</th>
             <th>COLEGIO</th>
-            <th>CARGO</th>
             <th>CORREO_INSTITUCIONAL</th>
             <th>CORREO_ALTERNATIVO</th>
             <th>DIA_Y_HORA_DE_LLEGADA</th>
@@ -34,7 +33,6 @@
                 <tr>
                 <td>{{$dato->full_name}}</td>
                 <td>{{$dato->campus_name}}</td>
-                <td>{{$dato->name}}</td>
                 <td>{{$dato->job_email}}</td>
                 <td>{{$dato->personal_email}}</td>
                 <td>{{$dato->check_in}}</td>

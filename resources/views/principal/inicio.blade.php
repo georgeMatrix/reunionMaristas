@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
-            <h1 class="text-center text-dark">Bienvenido al módulo de registro para la Reunión de Directivos, septiembre 20-21 de 2019</h1>
+            <h1 class="text-center text-dark">Bienvenido al módulo de registro para la Reunión de Comunicación y Promoción, octubre 10-11 de 2019</h1>
             <div class="text-center">
                 <a href="{{route('registro.create')}}" style="color: white; background-color: #003560"  class="btn btn-success mt-5">Click para registrarse</a>
             </div>

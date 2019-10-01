@@ -20,7 +20,7 @@ class RegisterController extends Controller
     }
 
     public function excel(){
-        return (new RegistersExport)->download('registers.xlsx');
+        return (new RegistersExport)->download('comunicacion.xlsx');
     }
 
    /* public function ExportPdf($id){
@@ -50,9 +50,9 @@ class RegisterController extends Controller
     {
         $datosPerson = DB::table('person')
             ->join('campuses', 'person.campus_id', '=', 'campuses.id')
-            ->join('staff', 'person.staff_id', '=', 'staff.id')
+            //->join('staff', 'person.staff_id', '=', 'staff.id')
             ->join('registers', 'person.id', '=', 'registers.person_id')
-            ->select('person.id','person.full_name', 'campuses.name as campus_name', 'staff.name', 'person.job_email', 'person.personal_email', 'registers.check_in', 'registers.check_out', 'registers.is_loading', 'registers.is_food', 'registers.food_description', 'registers.notes', 'registers.status')
+            ->select('person.id','person.full_name', 'campuses.name as campus_name', 'person.job_email', 'person.personal_email', 'registers.check_in', 'registers.check_out', 'registers.is_loading', 'registers.is_food', 'registers.food_description', 'registers.notes', 'registers.status')
             ->where('registers.status', '=', 'active')
             ->get();
         $datosRegisters = DB::table('registers')
@@ -74,7 +74,7 @@ class RegisterController extends Controller
     {
         $campuses = Campus::all();
         $staffs = Staff::all();
-        return view('termino')
+        return view('principal/registro')
             ->with('staffs', $staffs)
             ->with('campuses', $campuses);
     }
@@ -87,7 +87,7 @@ class RegisterController extends Controller
      */
     public function store(Registro $request)
     {
-        /*$personaIngresada = Person::create($request->all());
+        $personaIngresada = Person::create($request->all());
         $id_person = $personaIngresada->id;
         $register = new Register();
         $meeting = Meeting::find(1);
@@ -100,8 +100,8 @@ class RegisterController extends Controller
         $register->food_description = $request->food_description;
         $register->notes = $request->notes;
         $register->save();
-        return redirect()->route('registro.create')->with(['message' => 'Transacción éxistosa']);*/
-        return view('termino');
+        return redirect()->route('registro.create')->with(['message' => 'Transacción éxistosa']);
+        //return view('termino');
     }
 
     /**
