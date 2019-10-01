@@ -74,7 +74,7 @@ class RegisterController extends Controller
     {
         $campuses = Campus::all();
         $staffs = Staff::all();
-        return view('principal/registro')
+        return view('termino')
             ->with('staffs', $staffs)
             ->with('campuses', $campuses);
     }
@@ -87,7 +87,7 @@ class RegisterController extends Controller
      */
     public function store(Registro $request)
     {
-        $personaIngresada = Person::create($request->all());
+        /*$personaIngresada = Person::create($request->all());
         $id_person = $personaIngresada->id;
         $register = new Register();
         $meeting = Meeting::find(1);
@@ -100,7 +100,8 @@ class RegisterController extends Controller
         $register->food_description = $request->food_description;
         $register->notes = $request->notes;
         $register->save();
-        return redirect()->route('registro.create')->with(['message' => 'Transacción éxistosa']);
+        return redirect()->route('registro.create')->with(['message' => 'Transacción éxistosa']);*/
+        return view('termino');
     }
 
     /**

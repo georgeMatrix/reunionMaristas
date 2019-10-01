@@ -32,3 +32,5 @@ Route::get('excel', 'RegisterController@excel');
 /*Route::get('crear', 'RegisterController@create')->name('crear');
 Route::get('crearPdf/{id}', 'RegisterController@ExportPdf')->name('crearPdf');*/
 Route::resource('inicio', 'InicioController');
+
+Route::resource('prueba', 'RegisterController@prueba');
