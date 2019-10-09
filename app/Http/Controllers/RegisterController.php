@@ -74,7 +74,7 @@ class RegisterController extends Controller
     {
         $campuses = Campus::all();
         $staffs = Staff::all();
-        return view('principal/registro')
+        return view('termino')
             ->with('staffs', $staffs)
             ->with('campuses', $campuses);
     }
